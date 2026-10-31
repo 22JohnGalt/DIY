@@ -23,6 +23,29 @@
     }
   }
 
+  /* ---------- intro morph: DIY -> DAIY, one scroll variable drives the CSS ---------- */
+  var morph = document.getElementById('intro');
+  if (morph) {
+    if (reduce) {
+      morph.style.setProperty('--p', '1');
+    } else {
+      var morphTicking = false;
+      var morphUpdate = function () {
+        morphTicking = false;
+        var total = morph.offsetHeight - window.innerHeight;
+        var y = -morph.getBoundingClientRect().top;
+        var p = total > 0 ? Math.min(Math.max(y / total, 0), 1) : 1;
+        morph.style.setProperty('--p', p.toFixed(4));
+      };
+      var morphReq = function () {
+        if (!morphTicking) { morphTicking = true; window.requestAnimationFrame(morphUpdate); }
+      };
+      window.addEventListener('scroll', morphReq, { passive: true });
+      window.addEventListener('resize', morphReq);
+      morphUpdate();
+    }
+  }
+
   /* ---------- scroll reveals: visible on enter, re-armed on full exit ---------- */
   if (hasIO && !reduce) {
     var revealObserver = new IntersectionObserver(function (entries) {
