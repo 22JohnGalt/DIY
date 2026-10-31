@@ -14,6 +14,15 @@
   <link rel="preload" href="fonts/ibm-plex-sans-condensed-600-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/ibm-plex-mono-400-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
+  <script>
+    document.documentElement.classList.add('js');
+    setTimeout(function () {
+      if (!document.documentElement.classList.contains('motion-init')) {
+        document.documentElement.classList.add('no-motion');
+      }
+    }, 900);
+  </script>
+  <script src="main.js" defer></script>
 </head>
 <body id="top">
 
@@ -34,6 +43,7 @@
       </a>
       <nav class="main-nav" aria-label="Primary">
         <a href="#building">Building</a>
+        <a href="#instruments">Instruments</a>
         <a href="#principles">Principles</a>
         <a href="#process">Process</a>
         <a class="nav-cta" href="#contact">Get in touch</a>
@@ -50,102 +60,162 @@
           <p class="lede">DAIY Lab is an independent research lab for small, self-hostable AI: free, open-source models and tools that run on your own hardware.</p>
           <div class="actions">
             <a class="btn" href="#building">Explore the lab</a>
-            <a class="textlink" href="#principles">Read the principles</a>
+            <a class="textlink" href="#instruments">Try the instrument</a>
           </div>
         </div>
 
-        <figure class="hero-figure" aria-hidden="true">
-          <svg class="hero-scale" viewBox="0 0 340 430" focusable="false">
-            <text class="hs-annot" x="8" y="28">the sizes we work at</text>
-            <g class="axis">
-              <line x1="64" y1="48" x2="88" y2="48"/>
-              <line x1="76" y1="48" x2="76" y2="392"/>
-              <line x1="64" y1="392" x2="88" y2="392"/>
-            </g>
-            <g class="tick t1">
-              <line x1="64" y1="96" x2="76" y2="96"/>
-              <circle class="hs-dot" cx="76" cy="96" r="2.5"/>
-              <text class="hs-num" x="90" y="103">0.5B</text>
-              <text class="hs-tag" x="90" y="124">phone</text>
-            </g>
-            <g class="tick t2">
-              <line x1="64" y1="190" x2="76" y2="190"/>
-              <circle class="hs-dot" cx="76" cy="190" r="2.5"/>
-              <text class="hs-num" x="90" y="197">1B</text>
-              <text class="hs-tag" x="90" y="218">older laptop</text>
-            </g>
-            <g class="tick t3">
-              <line x1="64" y1="284" x2="76" y2="284"/>
-              <circle class="hs-dot" cx="76" cy="284" r="2.5"/>
-              <text class="hs-num" x="90" y="291">3B</text>
-              <text class="hs-tag" x="90" y="312">laptop</text>
-            </g>
-            <g class="tick t4">
-              <line x1="64" y1="378" x2="76" y2="378"/>
-              <circle class="hs-dot" cx="76" cy="378" r="2.5"/>
-              <text class="hs-num" x="90" y="385">7B</text>
-              <text class="hs-tag" x="90" y="406">workstation</text>
-            </g>
-          </svg>
-          <figcaption class="hs-cap">approximate 4-bit memory footprint on a single machine</figcaption>
+        <figure class="hero-figure">
+          <div class="hs" data-reveal-stagger>
+            <p class="hs-annot" data-reveal>the sizes we work at</p>
+            <ul class="hs-list">
+              <li data-reveal>
+                <button type="button" class="hs-item" data-size="0.5B" data-gb="0.7" data-flavor="quick on a phone" aria-pressed="false">
+                  <span class="hs-dot" aria-hidden="true"></span>
+                  <span class="hs-num">0.5B</span>
+                  <span class="hs-tag">phone</span>
+                </button>
+              </li>
+              <li data-reveal>
+                <button type="button" class="hs-item" data-size="1B" data-gb="1.0" data-flavor="at home on an old laptop" aria-pressed="false">
+                  <span class="hs-dot" aria-hidden="true"></span>
+                  <span class="hs-num">1B</span>
+                  <span class="hs-tag">older laptop</span>
+                </button>
+              </li>
+              <li data-reveal>
+                <button type="button" class="hs-item is-active" data-size="3B" data-gb="2.1" data-flavor="comfortable on a laptop" aria-pressed="true">
+                  <span class="hs-dot" aria-hidden="true"></span>
+                  <span class="hs-num">3B</span>
+                  <span class="hs-tag">laptop</span>
+                </button>
+              </li>
+              <li data-reveal>
+                <button type="button" class="hs-item" data-size="7B" data-gb="4.3" data-flavor="at home on a workstation" aria-pressed="false">
+                  <span class="hs-dot" aria-hidden="true"></span>
+                  <span class="hs-num">7B</span>
+                  <span class="hs-tag">workstation</span>
+                </button>
+              </li>
+            </ul>
+            <p class="hs-read" id="hsRead" data-reveal aria-live="polite">3B — roughly 2.1 GB at 4-bit, comfortable on a laptop.</p>
+            <figcaption class="hs-cap" data-reveal>click a size — rough 4-bit memory footprint on a single machine</figcaption>
+          </div>
         </figure>
       </div>
     </section>
 
-    <section class="section" id="building" aria-labelledby="building-title">
+    <section class="section" id="building" aria-labelledby="building-title" data-inview>
+      <span class="srule" aria-hidden="true"></span>
       <div class="wrap">
         <div class="block-head">
-          <h2 id="building-title">Small models, open tools, your hardware.</h2>
+          <h2 id="building-title" data-reveal>Small models, open tools, your hardware.</h2>
         </div>
         <div class="split-grid">
           <div class="prose">
-            <p>We experiment with small models and open tools that people can run, inspect, and adapt for themselves. Our interest is less in making AI bigger, and more in making it useful, understandable, and within reach.</p>
-            <p>The work is practical: prototype, measure on ordinary hardware, document what holds up and what doesn&rsquo;t, and publish the pieces others can build on.</p>
+            <p data-reveal>We experiment with small models and open tools that people can run, inspect, and adapt for themselves. Our interest is less in making AI bigger, and more in making it useful, understandable, and within reach.</p>
+            <p data-reveal>The work is practical: prototype, measure on ordinary hardware, document what holds up and what doesn&rsquo;t, and publish the pieces others can build on.</p>
           </div>
-          <figure class="diagram-card">
+          <figure class="diagram-card" data-reveal data-inview>
             <svg class="dsvg" viewBox="0 0 420 316" role="img" aria-label="Self-hosting target diagram: an open model served by a localhost runtime behind your own interface, with the link to an outside cloud service deliberately crossed out at the boundary of your computer." focusable="false">
-              <rect class="dframe" x="24" y="24" width="372" height="240" rx="2"/>
-              <text class="dlabel" x="40" y="50">your computer</text>
-              <rect class="dnode" x="288" y="44" width="104" height="36" rx="2"/>
-              <text class="dsmall" x="340" y="66" text-anchor="middle">localhost server</text>
-              <rect class="dnode" x="36" y="110" width="96" height="36" rx="2"/>
-              <text class="dsmall" x="84" y="132" text-anchor="middle">your interface</text>
-              <rect class="dnode dnode-key" x="150" y="118" width="120" height="62" rx="2"/>
-              <text class="dtext" x="210" y="145" text-anchor="middle">open model</text>
-              <path class="dlink" d="M132 128 H210 V62 H288"/>
-              <path class="dlink" d="M340 80 V99 H250 V118"/>
-              <path class="dlink-dead" d="M210 180 V257"/>
-              <path class="dx" d="M205 259 L215 269"/>
-              <path class="dx" d="M215 259 L205 269"/>
-              <circle class="dext" cx="210" cy="292" r="20"/>
-              <text class="dlabel" x="210" y="296" text-anchor="middle">cloud</text>
+              <g class="dpart" id="dg-frame">
+                <rect class="dframe" x="24" y="24" width="372" height="240" rx="2"/>
+                <text class="dlabel" x="40" y="50">your computer</text>
+              </g>
+              <g class="dpart dnode-g" id="dg-interface" data-node="interface">
+                <rect class="dnode" x="36" y="110" width="96" height="36" rx="2"/>
+                <text class="dsmall" x="84" y="132" text-anchor="middle">your interface</text>
+              </g>
+              <g class="dpart dnode-g" id="dg-server" data-node="server">
+                <rect class="dnode" x="288" y="44" width="104" height="36" rx="2"/>
+                <text class="dsmall" x="340" y="66" text-anchor="middle">localhost server</text>
+              </g>
+              <g class="dpart dnode-g is-active" id="dg-model" data-node="model">
+                <rect class="dnode dnode-key" x="150" y="118" width="120" height="62" rx="2"/>
+                <text class="dtext" x="210" y="145" text-anchor="middle">open model</text>
+              </g>
+              <g class="dpart" id="dg-wires">
+                <path class="dlink" pathLength="1" d="M132 128 H210 V62 H288"/>
+                <path class="dlink" pathLength="1" d="M340 80 V99 H250 V118"/>
+              </g>
+              <g class="dpart dnode-g" id="dg-cloud" data-node="cloud">
+                <path class="dlink-dead" d="M210 180 V257"/>
+                <path class="dx" d="M205 259 L215 269"/>
+                <path class="dx" d="M215 259 L205 269"/>
+                <circle class="dext" cx="210" cy="292" r="20"/>
+                <text class="dlabel" x="210" y="296" text-anchor="middle">cloud</text>
+              </g>
             </svg>
+            <div class="dlegend" role="group" aria-label="Focus a part of the stack">
+              <button type="button" class="dl" data-node="interface" data-note="Where you read and type — a plain web page or a terminal, on the same machine.">interface</button>
+              <button type="button" class="dl" data-node="server" data-note="A small runtime bound to loopback. It serves only this machine.">localhost</button>
+              <button type="button" class="dl is-active" data-node="model" data-note="Open weights you can read, pin, and retrain. The part you actually own." aria-pressed="true">open model</button>
+              <button type="button" class="dl" data-node="cloud" data-note="Off the path by design: nothing in this setup talks to it.">cloud</button>
+            </div>
+            <p class="dnote" id="dnote">Open weights you can read, pin, and retrain. The part you actually own.</p>
             <figcaption class="diagram-cap">Working target: one computer holds the whole stack. Nothing leaves the machine.</figcaption>
           </figure>
         </div>
       </div>
     </section>
 
-    <section class="section" id="principles" aria-labelledby="principles-title">
+    <section class="section" id="instruments" aria-labelledby="instruments-title" data-inview>
+      <span class="srule" aria-hidden="true"></span>
       <div class="wrap">
         <div class="block-head">
-          <h2 id="principles-title">What guides the work</h2>
-          <p class="block-lede">Guiding interests for the lab, stated plainly with nothing guaranteed.</p>
+          <h2 id="instruments-title" data-reveal>Instrument: will it fit?</h2>
+          <p class="block-lede" data-reveal>Pick a model size, set the memory you have, and see what fits. A rule of thumb, not a spec sheet.</p>
         </div>
-        <ul class="principles">
-          <li>
+        <div class="instrument" data-reveal>
+          <div class="inctl">
+            <fieldset class="chips-fs">
+              <legend>model size</legend>
+              <div class="chips">
+                <label class="chip-opt"><input type="radio" name="insize" value="0.5"><span class="chip-btn">0.5B</span></label>
+                <label class="chip-opt"><input type="radio" name="insize" value="1"><span class="chip-btn">1B</span></label>
+                <label class="chip-opt"><input type="radio" name="insize" value="3" checked><span class="chip-btn">3B</span></label>
+                <label class="chip-opt"><input type="radio" name="insize" value="7"><span class="chip-btn">7B</span></label>
+              </div>
+            </fieldset>
+            <div class="ram">
+              <span class="ram-lab">memory available</span>
+              <input id="ramRange" type="range" min="2" max="32" step="1" value="8" aria-describedby="inVerdict">
+              <span class="ram-ticks" aria-hidden="true"><span>2 GB</span><span>32 GB</span></span>
+            </div>
+          </div>
+          <div class="inread">
+            <p class="in-verdict" id="inVerdict" aria-live="polite">About 2.1 GB at 4-bit — comfortable in 8 GB.</p>
+            <div class="in-ratio">
+              <div class="in-track"><div class="in-fill" id="inFill" style="width:26%"></div></div>
+              <div class="in-rank"><span>model footprint</span><span id="ramOut">8 GB available</span></div>
+            </div>
+            <p class="in-note">rule of thumb: about 0.55 GB per billion parameters at 4-bit, plus 0.4 GB for the runtime. Real needs vary with context length.</p>
+          </div>
+        </div>
+        <p class="in-fallback">The arithmetic, without the slider: at 4-bit quantization a small model needs roughly 0.55 GB per billion parameters plus 0.4 GB for the runtime — a 3B model lands near 2.1 GB and a 7B near 4.3 GB. Give yourself headroom for the context you work with.</p>
+      </div>
+    </section>
+
+    <section class="section" id="principles" aria-labelledby="principles-title" data-inview>
+      <span class="srule" aria-hidden="true"></span>
+      <div class="wrap">
+        <div class="block-head">
+          <h2 id="principles-title" data-reveal>What guides the work</h2>
+          <p class="block-lede" data-reveal>Guiding interests for the lab, stated plainly with nothing guaranteed.</p>
+        </div>
+        <ul class="principles" data-reveal-stagger>
+          <li data-reveal>
             <h3>Small by design</h3>
             <p>Capability should not require a data center. Small models keep AI affordable, inspectable, and close at hand.</p>
           </li>
-          <li>
+          <li data-reveal>
             <h3>Open by license</h3>
             <p>Free and open-source code and weights, so anyone can read them, verify them, and change them.</p>
           </li>
-          <li>
+          <li data-reveal>
             <h3>Private by default</h3>
             <p>Self-hosting is the point: your documents, your queries, and your outputs stay on your machine.</p>
           </li>
-          <li>
+          <li data-reveal>
             <h3>Evidence over promise</h3>
             <p>We measure on ordinary hardware, document what we find, and say plainly when something doesn&rsquo;t work.</p>
           </li>
@@ -153,29 +223,30 @@
       </div>
     </section>
 
-    <section class="section" id="process" aria-labelledby="process-title">
+    <section class="section" id="process" aria-labelledby="process-title" data-inview>
+      <span class="srule" aria-hidden="true"></span>
       <div class="wrap">
         <div class="block-head">
-          <h2 id="process-title">How the work moves</h2>
-          <p class="block-lede">A plain loop, repeated, kept honest by documentation.</p>
+          <h2 id="process-title" data-reveal>How the work moves</h2>
+          <p class="block-lede" data-reveal>A plain loop, repeated, kept honest by documentation.</p>
         </div>
-        <ol class="process">
-          <li>
+        <ol class="process" data-reveal-stagger>
+          <li data-reveal>
             <p class="step-num">01</p>
             <h3>Collect</h3>
             <p>Papers, open datasets, and checkpoints small enough to run on one machine.</p>
           </li>
-          <li>
+          <li data-reveal>
             <p class="step-num">02</p>
             <h3>Build</h3>
             <p>Prototypes assembled from open components and tuned by hand.</p>
           </li>
-          <li>
+          <li data-reveal>
             <p class="step-num">03</p>
             <h3>Test</h3>
             <p>Benchmarks on ordinary hardware, including the numbers that disappoint.</p>
           </li>
-          <li>
+          <li data-reveal>
             <p class="step-num">04</p>
             <h3>Publish</h3>
             <p>Code, models, and results under open licenses, so others can replicate them.</p>
@@ -184,16 +255,18 @@
       </div>
     </section>
 
-    <section class="section section-invite" id="contact" aria-labelledby="invitation-title">
+    <section class="section section-invite" id="contact" aria-labelledby="invitation-title" data-inview>
+      <span class="srule" aria-hidden="true"></span>
       <div class="wrap">
         <div class="block-head">
-          <h2 id="invitation-title">If you work on small models, self-hosting, or open tooling, we&rsquo;d like to compare notes.</h2>
+          <h2 id="invitation-title" data-reveal>If you work on small models, self-hosting, or open tooling, we&rsquo;d like to compare notes.</h2>
         </div>
         <!-- CONTACT PLACEHOLDER: replace hello@daiylab.example with the lab's real mailbox -->
-        <div class="actions">
+        <div class="actions" data-reveal>
           <a class="btn" href="mailto:hello@daiylab.example">Email the lab</a>
+          <button class="copy" id="copyMail" type="button" data-copy="hello@daiylab.example">Copy address</button>
         </div>
-        <p class="placeholder-note">address is a placeholder, the lab&rsquo;s real mailbox goes here</p>
+        <p class="placeholder-note" data-reveal>address is a placeholder, the lab&rsquo;s real mailbox goes here</p>
       </div>
     </section>
   </main>
@@ -215,6 +288,7 @@
       <nav class="footer-nav" aria-label="Footer">
         <ul>
           <li><a href="#building">Building</a></li>
+          <li><a href="#instruments">Instruments</a></li>
           <li><a href="#principles">Principles</a></li>
           <li><a href="#process">Process</a></li>
           <li><a href="#contact">Get in touch</a></li>
