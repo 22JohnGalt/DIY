@@ -256,7 +256,7 @@ h1 {
 /* ---------- intro morph: DIY -> DAIY, driven by scroll (--p: 0..1) ---------- */
 
 /* default final state (no-JS / before JS measures): DAIY fully assembled */
-.morph { height: 185vh; --p: 1; }
+.morph { height: 185vh; --p: 1; --slot: .3em; } /* --slot = A's advance width; JS replaces it with the measured value */
 html.js .morph { --p: 1; } /* inline --p from JS overrides; avoids a flash between load and first measure */
 
 .morph-pane {
@@ -276,31 +276,42 @@ html.js .morph { --p: 1; } /* inline --p from JS overrides; avoids a flash betwe
   margin: 0; user-select: none;
 }
 .morph-letter { display: inline-block; }
-.morph-d, .morph-y { color: var(--text); }
-.morph-d { transform: translateX(calc(var(--p) * -.085em)); }
-.morph-y { transform: translateX(calc(var(--p) * .085em)); }
 
-.morph-ai {
-  position: relative;
-  display: inline-flex; align-items: baseline;
-  color: var(--signal);
-  padding-inline: .012em;
-}
+/*
+  Sequence: DIY -> DAIY.
+  The builder's letters are on the bench from the first frame: D, I and Y
+  sit butted tight around the empty slot where A will land, so the word
+  reads DIY at p=0. --slot is A's exact measured advance width (set by
+  main.js), which keeps the joint seamless. As the page scrolls the word
+  opens outward from its center, A drops into the slot from above, and I
+  comes to rest beside it — together they spell the "AI" the underline
+  stamps beneath.
+*/
+.morph-d, .morph-y, .morph-ei { color: var(--text); }
+.morph-d { transform: translateX(calc((1 - var(--p)) * var(--slot) / 2)); }
+.morph-y { transform: translateX(calc((1 - var(--p)) * var(--slot) / -2)); }
+
+.morph-ai { position: relative; display: inline-flex; align-items: baseline; }
+/* the orange underline sweeps beneath the finished AI pair */
 .morph-ai::after {
   content: ""; position: absolute;
-  left: .02em; right: .06em; bottom: -.075em; height: .05em;
+  left: -.02em; right: -.02em; bottom: -.08em; height: .05em;
   background: var(--signal);
   transform-origin: left;
   transform: scaleX(clamp(0, calc((var(--p) - .72) * 3.6), 1));
 }
-.morph-ea, .morph-ei {
-  opacity: clamp(0, calc(var(--p) * 2.6 - .75), 1);
-  transform-origin: 50% 85%;
-  transform: translateX(calc((1 - var(--p)) * -.55em)) scaleY(calc(.8 + var(--p) * .2));
+
+/* A drops in from above: fades in while falling, lands at full height */
+.morph-ea {
+  color: var(--signal);
+  opacity: clamp(0, calc(var(--p) * 2.6 - .8), 1);
+  transform-origin: 50% 100%;
+  transform:
+    translateY(calc((1 - clamp(0, calc((var(--p) - .2) * 1.9), 1)) * -.3em))
+    scaleY(calc(.74 + clamp(0, calc((var(--p) - .2) * 1.9), 1) * .26));
 }
-.morph-ei {
-  transform: translateX(calc((1 - var(--p)) * .55em)) scaleY(calc(.8 + var(--p) * .2));
-}
+
+.morph-ei { transform: translateX(calc((1 - var(--p)) * var(--slot) / -2)); }
 
 .morph-caps {
   position: relative;

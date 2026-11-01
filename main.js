@@ -26,6 +26,21 @@
   /* ---------- intro morph: DIY -> DAIY, one scroll variable drives the CSS ---------- */
   var morph = document.getElementById('intro');
   if (morph) {
+    /* measure A's exact advance width: D, I and Y use it to butt tight
+       around the empty slot at p=0, so the start frame reads DIY */
+    var slotMeasure = function () {
+      var ea = morph.querySelector('.morph-ea');
+      var word = morph.querySelector('.morph-word');
+      var fs = word ? parseFloat(getComputedStyle(word).fontSize) : 0;
+      var aw = ea ? ea.getBoundingClientRect().width : 0;
+      if (fs > 0 && aw > 0) {
+        morph.style.setProperty('--slot', (aw / fs).toFixed(4) + 'em');
+      }
+    };
+    slotMeasure();
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(slotMeasure);
+    }
     if (reduce) {
       morph.style.setProperty('--p', '1');
     } else {
