@@ -3,345 +3,298 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DAIY Lab — Independent AI workshop</title>
-  <meta name="description" content="DAIY Lab is an independent AI workshop for small, self-hostable AI: free, open-source models and tools that run on your own hardware.">
-  <meta name="theme-color" content="#111317">
+  <title>DAIY Lab | AI you can run yourself</title>
+  <meta name="description" content="DAIY Lab builds small AI models and tools for hardware you control. Explore Maestro for age estimation and Shroud for local text masking.">
+  <meta name="theme-color" content="#13131a">
   <meta name="color-scheme" content="dark">
-  <meta property="og:title" content="DAIY Lab — Independent AI workshop">
-  <meta property="og:description" content="Break it. Fix it. Run it yourself. Open-source models and tools built for people who want the workbench, not the walled garden.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="DAIY Lab | AI you can run yourself">
+  <meta property="og:description" content="DAIY Lab builds small AI models and tools for hardware you control. Explore Maestro for age estimation and Shroud for local text masking.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="fonts/ibm-plex-sans-var-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/ibm-plex-sans-condensed-600-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="fonts/ibm-plex-mono-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/space-mono-bold-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/source-sans-3-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="styles.css">
-  <script>
-    document.documentElement.classList.add('js');
-    setTimeout(function () {
-      if (!document.documentElement.classList.contains('motion-init')) {
-        document.documentElement.classList.add('no-motion');
-      }
-    }, 900);
-  </script>
   <script src="main.js" defer></script>
 </head>
 <body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <div class="gridlines" aria-hidden="true"></div>
-
-  <a class="skip" href="#main">Skip to content</a>
-
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <a class="wordmark" href="#top">
-        <svg class="wm" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
-          <rect x="1" y="1" width="8" height="8"/>
-          <rect x="11" y="1" width="8" height="8"/>
-          <rect x="1" y="11" width="8" height="8"/>
-          <rect class="wm-a" x="11" y="11" width="8" height="8"/>
-        </svg>
-        <span class="wordmark-text">DAIY<span class="wordmark-lab"> Lab</span></span>
-      </a>
-      <nav class="main-nav" aria-label="Primary">
-        <a href="#stack">Stack</a>
-        <a href="#instruments">Instruments</a>
-        <a href="#process">Process</a>
-        <a href="#principles">Principles</a>
-        <a class="nav-cta" href="#contact">Get in touch</a>
-      </nav>
-    </div>
+  <header class="wrap site-header">
+    <a class="wordmark" href="#top">D<span>AI</span>Y Lab</a>
   </header>
 
-  <main id="main">
+  <div class="wrap site-layout">
+    <nav class="section-index" aria-label="Lab Index">
+      <p>Lab Index</p>
+      <ul>
+        <li><a href="#intro" aria-current="location">Intro</a></li>
+        <li><a href="#maestro">Maestro</a></li>
+        <li><a href="#shroud">Shroud</a></li>
+        <li><a href="#instruments">Tools</a></li>
+      </ul>
+    </nav>
 
-    <section class="morph" id="intro" aria-label="DAIY — DIY with AI assembled inside">
-      <div class="morph-pane">
-        <p class="morph-word" aria-hidden="true"><span class="morph-letter morph-d">D</span><span class="morph-ai"><span class="morph-letter morph-ea">A</span><span class="morph-letter morph-ei">I</span></span><span class="morph-letter morph-y">Y</span></p>
-        <div class="morph-caps">
-          <p class="morph-cap1">do it yourself</p>
-          <p class="morph-cap2">do it — with ai</p>
-        </div>
-        <p class="morph-hint" aria-hidden="true">scroll &darr;</p>
-      </div>
-      <p class="sr-only">D A I Y — DIY with AI built in: artificial intelligence in the service of builders and hackers.</p>
-    </section>
-
-    <section class="hero" aria-label="Introduction">
-      <div class="wrap hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="chip-dot" aria-hidden="true"></span>An independent, open-source AI lab</p>
-          <h1>Break it. Fix it. Run it yourself.</h1>
-          <p class="lede">DAIY Lab builds small, self-hostable AI in the open &mdash; models and tools you can run, inspect, and take apart on your own hardware.</p>
-          <div class="actions">
-            <a class="btn" href="#stack">Explore the stack</a>
-            <a class="textlink" href="#principles">Read the principles</a>
+    <main id="main" tabindex="-1">
+      <section class="hero" id="intro" aria-labelledby="hero-title">
+        <div class="hero-stage">
+          <div class="hero-copy">
+            <h1 id="hero-title" aria-label="do AI yourself">
+              <span aria-hidden="true">
+                <span class="hero-title-line">do <span class="hero-title-word"><span class="hero-title-it">it</span><span class="hero-title-ai">AI</span></span></span>
+                yourself
+              </span>
+            </h1>
+            <p>Small AI models and tools for hardware you control.</p>
+            <a class="hero-link" href="#projects"><span>Explore projects</span><span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="hero-print" aria-hidden="true">
+            <div class="hero-mark"><span class="hero-mark-outline">D</span><span class="hero-mark-insert"><span>A</span></span><span>I</span><span class="hero-mark-outline">Y</span></div>
+            <div class="hero-print-field">
+              <div class="hero-mark"><span class="hero-mark-outline">D</span><span class="hero-mark-insert"><span>A</span></span><span>I</span><span class="hero-mark-outline">Y</span></div>
+            </div>
           </div>
         </div>
+      </section>
 
-        <figure class="hero-figure">
-          <div class="hs" data-reveal-stagger>
-            <p class="hs-annot" data-reveal>the sizes we work at</p>
-            <ul class="hs-list">
-              <li data-reveal>
-                <button type="button" class="hs-item" data-size="0.5B" data-gb="0.7" data-flavor="quick on a phone" aria-pressed="false">
-                  <span class="hs-dot" aria-hidden="true"></span>
-                  <span class="hs-num">0.5B</span>
-                  <span class="hs-tag">phone</span>
-                </button>
-              </li>
-              <li data-reveal>
-                <button type="button" class="hs-item" data-size="1B" data-gb="1.0" data-flavor="at home on an old laptop" aria-pressed="false">
-                  <span class="hs-dot" aria-hidden="true"></span>
-                  <span class="hs-num">1B</span>
-                  <span class="hs-tag">older laptop</span>
-                </button>
-              </li>
-              <li data-reveal>
-                <button type="button" class="hs-item is-active" data-size="3B" data-gb="2.1" data-flavor="comfortable on a laptop" aria-pressed="true">
-                  <span class="hs-dot" aria-hidden="true"></span>
-                  <span class="hs-num">3B</span>
-                  <span class="hs-tag">laptop</span>
-                </button>
-              </li>
-              <li data-reveal>
-                <button type="button" class="hs-item" data-size="7B" data-gb="4.3" data-flavor="at home on a workstation" aria-pressed="false">
-                  <span class="hs-dot" aria-hidden="true"></span>
-                  <span class="hs-num">7B</span>
-                  <span class="hs-tag">workstation</span>
-                </button>
-              </li>
-            </ul>
-            <p class="hs-read" id="hsRead" data-reveal aria-live="polite">3B — roughly 2.1 GB at 4-bit, comfortable on a laptop.</p>
-            <figcaption class="hs-cap" data-reveal>click a size — rough 4-bit memory footprint on a single machine</figcaption>
-          </div>
-        </figure>
-      </div>
-    </section>
+      <div id="projects">
+        <section class="section project" id="maestro" aria-labelledby="maestro-title">
+          <h2 id="maestro-title">Maestro</h2>
+          <p class="project-subtitle">Private, on-device age estimation</p>
 
-    <section class="section" id="stack" aria-labelledby="stack-title" data-inview>
-      <span class="srule" aria-hidden="true"></span>
-      <div class="wrap">
-        <div class="block-head">
-          <h2 id="stack-title" data-reveal>A full stack for AI you can turn over in your hands.</h2>
-        </div>
-        <div class="stack-grid" data-reveal-stagger>
-          <article class="tile" data-reveal>
-            <h3>Small models</h3>
-            <p>We build compact open-weight models sized for ordinary machines, and measure them before we claim anything about them.</p>
-          </article>
-          <article class="tile" data-reveal>
-            <h3>Open-source tools</h3>
-            <p>Runtimes, scripts, and recipes under licenses anyone can read, fork, and build on. Defaults in the open, always.</p>
-          </article>
-          <article class="tile" data-reveal>
-            <h3>Self-hosting runtime</h3>
-            <p>A stack that runs on loopback: your queries, documents, and outputs never leave your machine.</p>
-          </article>
-          <article class="tile" data-reveal>
-            <h3>Public notes</h3>
-            <p>What worked, what failed, and what we&rsquo;re trying next &mdash; written down while the work happens, not after.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="instruments" aria-labelledby="instruments-title" data-inview>
-      <span class="srule" aria-hidden="true"></span>
-      <div class="wrap">
-        <div class="block-head">
-          <h2 id="instruments-title" data-reveal>Instruments, not promises.</h2>
-          <p class="block-lede" data-reveal>Two tools you can drive before you trust anything we say. The arithmetic first, the architecture second.</p>
-        </div>
-
-        <p class="inst-tag" data-reveal>Instrument 01 &middot; will it fit</p>
-        <div class="instrument" data-reveal>
-          <div class="inctl">
-            <fieldset class="chips-fs">
-              <legend>model size</legend>
-              <div class="chips">
-                <label class="chip-opt"><input type="radio" name="insize" value="0.5"><span class="chip-btn">0.5B</span></label>
-                <label class="chip-opt"><input type="radio" name="insize" value="1"><span class="chip-btn">1B</span></label>
-                <label class="chip-opt"><input type="radio" name="insize" value="3" checked><span class="chip-btn">3B</span></label>
-                <label class="chip-opt"><input type="radio" name="insize" value="7"><span class="chip-btn">7B</span></label>
+          <div class="project-story" data-walkthrough data-motion data-state="face">
+            <figure class="story-stage maestro-stage" aria-labelledby="device-label">
+              <figcaption class="stage-label device-label" id="device-label">On your device</figcaption>
+              <div class="device-pipeline">
+                <div class="camera-bay">
+                  <img class="phone-scene" src="media/maestro-phone.webp" width="640" height="640" alt="The fictional subject looks at a phone held in both hands for a selfie scan.">
+                  <div class="camera-preview">
+                    <p>Phone camera view</p>
+                    <div class="maestro-view" aria-hidden="true">
+                      <img src="media/maestro-portrait.webp" width="480" height="480" alt="">
+                      <div class="face-target"><div class="face-sweep"></div></div>
+                      <div class="face-points"><i></i><i></i><i></i><i></i><i></i></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="pipeline-readout">
+                  <ol class="pipeline-stages" aria-hidden="true">
+                    <li class="is-highlighted" data-highlight="face">Camera frame</li>
+                    <li data-highlight="frame">Face scan</li>
+                    <li data-highlight="decision">18+ decision</li>
+                  </ol>
+                  <div class="story-readout" id="maestro-result" aria-live="polite" aria-atomic="true">
+                    <p data-panel="face">Face detected</p>
+                    <p data-panel="frame" hidden>Quality and liveness passed</p>
+                    <p data-panel="decision" hidden><strong>PASS · 18+</strong></p>
+                  </div>
+                </div>
               </div>
-            </fieldset>
-            <div class="ram">
-              <span class="ram-lab">memory available</span>
+            </figure>
+            <div class="story-steps" role="group" aria-label="Maestro pipeline stages" data-controls hidden>
+              <button type="button" data-step="face" aria-controls="maestro-result" aria-pressed="true">Find face</button>
+              <button type="button" data-step="frame" aria-controls="maestro-result" aria-pressed="false">Check frame</button>
+              <button type="button" data-step="decision" aria-controls="maestro-result" aria-pressed="false">Decide</button>
+            </div>
+            <p class="story-caption" data-fallback>The example passes the 18+ threshold after the face and frame checks.</p>
+          </div>
+
+          <div class="project-actions">
+            <div class="project-action-strip">
+              <a class="project-action" href="https://francescocelino.github.io/maestro-demo/">
+                <span>Browser demo</span>
+                <span class="project-action-icon" aria-hidden="true"><span>↗</span></span>
+              </a>
+              <a class="project-action" href="https://doi.org/10.5281/zenodo.21509794">
+                <span>Technical report</span>
+                <span class="project-action-icon" aria-hidden="true"><span>↗</span></span>
+              </a>
+              <button type="button" class="project-action" data-project-disclosure aria-controls="maestro-decision-note" aria-expanded="false" hidden>
+                <span>How Maestro decides</span>
+                <span class="project-action-icon" aria-hidden="true"><span></span></span>
+              </button>
+            </div>
+            <div class="project-action-note" id="maestro-decision-note">
+              <h3>How Maestro decides</h3>
+              <p>Maestro flags uncertain results. Its liveness model is trained to spot printed photos and video replays.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section project" id="shroud" aria-labelledby="shroud-title">
+          <h2 id="shroud-title">Shroud</h2>
+          <p class="project-subtitle">The sensitive details you mask stay on your device. ChatGPT or Claude sees only the copy you choose to share.</p>
+          <p class="preview-note">Planned cloud workflow · fictional example</p>
+
+          <div class="project-story" data-walkthrough data-motion data-state="original">
+            <div class="story-stage shroud-stage">
+              <div class="shroud-zones">
+                <section class="shroud-zone mac-zone" aria-labelledby="mac-label">
+                  <h3 class="stage-label" id="mac-label">On your Mac</h3>
+                  <img src="media/shroud-mac.webp" width="480" height="480" alt="">
+                  <div class="zone-documents">
+                    <div class="transfer-paper mac-note">
+                      <p class="paper-heading">Appointment note</p>
+                      <p class="paper-field">For <span class="paper-value">Alex Rivera</span><code class="paper-mask">[NAME]</code></p>
+                      <p class="paper-field">Email <span class="paper-value">alex@example.com</span><code class="paper-mask">[EMAIL]</code></p>
+                      <p>Please confirm Friday at 10:00.</p>
+                    </div>
+                    <div class="transfer-paper mac-reply">
+                      <p class="paper-heading">Restored reply</p>
+                      <p class="paper-field">To <span class="paper-value">alex@example.com</span></p>
+                      <p>Hi <span class="paper-value">Alex Rivera</span>, Friday at 10:00 is confirmed.</p>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="shroud-zone cloud-zone" aria-labelledby="cloud-label">
+                  <h3 class="stage-label" id="cloud-label">Cloud AI</h3>
+                  <div class="cloud-chat">
+                    <p class="chat-header"><span class="chat-icon" aria-hidden="true"></span>AI chat</p>
+                    <div class="chat-body">
+                      <p class="cloud-idle"><span data-cloud-idle>No note sent</span><span data-cloud-return>Reply sent back</span></p>
+                      <ol class="chat-transcript" aria-label="Illustrated cloud AI conversation">
+                        <li class="chat-message chat-user">
+                          <p class="chat-author">You</p>
+                          <div class="chat-bubble">
+                            <p class="paper-field">For <code class="paper-mask">[NAME]</code></p>
+                            <p class="paper-field">Email <code class="paper-mask">[EMAIL]</code></p>
+                            <p>Please confirm Friday at 10:00.</p>
+                          </div>
+                        </li>
+                        <li class="chat-message chat-assistant">
+                          <p class="chat-author">AI</p>
+                          <div class="chat-reply">
+                            <p class="paper-field">To <code class="paper-mask">[EMAIL]</code></p>
+                            <p>Hi <code class="paper-mask">[NAME]</code>, Friday at 10:00 is confirmed.</p>
+                          </div>
+                        </li>
+                      </ol>
+                    </div>
+                  </div>
+                </section>
+              </div>
+              <div class="transfer-lane" aria-hidden="true">
+                <div class="transfer-packet">
+                  <span class="packet-out">Sanitized copy →</span>
+                  <span class="packet-back">← Prepared reply</span>
+                  <code>[NAME] [EMAIL]</code>
+                </div>
+              </div>
+            </div>
+            <div class="story-steps shroud-steps" role="group" aria-label="Shroud document stages" data-controls hidden>
+              <button type="button" data-step="masked" aria-controls="shroud-result" aria-pressed="false">Mask locally</button>
+              <button type="button" data-step="cloud" aria-controls="shroud-result" aria-pressed="false">Work in the cloud</button>
+              <button type="button" data-step="restored" aria-controls="shroud-result" aria-pressed="false">Restore locally</button>
+              <button type="button" class="story-reset" data-step="original" aria-controls="shroud-result" aria-label="Start over" title="Start over">↺</button>
+            </div>
+            <div class="story-caption" id="shroud-result" aria-live="polite" aria-atomic="true">
+              <p data-panel="original">Original note on your Mac.</p>
+              <p data-panel="masked" hidden>Name and email masked.</p>
+              <p data-panel="cloud" hidden>Cloud AI receives the masked note.</p>
+              <p data-panel="restored" hidden>Details restored on your Mac.</p>
+            </div>
+            <p class="story-caption" data-fallback>The sanitized copy goes to Cloud AI. The reply comes back with placeholders, and Shroud restores the details on your Mac.</p>
+          </div>
+
+          <div class="project-actions">
+            <div class="project-action-strip">
+              <a class="project-action" href="https://francescocelino.github.io/#shroud">
+                <span>About the macOS prototype</span>
+                <span class="project-action-icon" aria-hidden="true"><span>↗</span></span>
+              </a>
+              <button type="button" class="project-action" data-project-disclosure aria-controls="shroud-recovery-note" aria-expanded="false" hidden>
+                <span>How local recovery works</span>
+                <span class="project-action-icon" aria-hidden="true"><span></span></span>
+              </button>
+            </div>
+            <div class="project-action-note" id="shroud-recovery-note">
+              <h3>How local recovery works</h3>
+              <p>A large language model (LLM) on your Mac suggests what to mask. You review its suggestions. An encrypted recovery file and a separate key let you restore the details locally.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <section class="section" id="instruments" aria-labelledby="tools-title">
+        <h2 id="tools-title">Tools</h2>
+        <div class="tools">
+          <article aria-labelledby="memory-title">
+            <h3 id="memory-title">Will the model fit?</h3>
+            <div id="memory-tool" hidden>
+              <fieldset class="model-size">
+                <legend>Model size</legend>
+                <div class="control-row">
+                  <label class="size-option"><input type="radio" name="insize" value="0.5"><span>0.5B</span></label>
+                  <label class="size-option"><input type="radio" name="insize" value="1"><span>1B</span></label>
+                  <label class="size-option"><input type="radio" name="insize" value="3" checked><span>3B</span></label>
+                  <label class="size-option"><input type="radio" name="insize" value="7"><span>7B</span></label>
+                </div>
+              </fieldset>
+              <label class="memory-label" for="ramRange">Available memory <span id="ramOut">8 GB</span></label>
               <input id="ramRange" type="range" min="2" max="32" step="1" value="8" aria-describedby="inVerdict">
-              <span class="ram-ticks" aria-hidden="true"><span>2 GB</span><span>32 GB</span></span>
+              <div class="memory-ticks" aria-hidden="true"><span>2 GB</span><span>32 GB</span></div>
+              <p id="inVerdict" class="memory-result" aria-live="polite">About 2.1 GB at 4-bit. Comfortable in 8 GB.</p>
+              <meter id="inFill" class="memory-meter" min="0" max="1" value="0.25625" aria-label="Share of available memory used"></meter>
             </div>
-          </div>
-          <div class="inread">
-            <p class="in-verdict" id="inVerdict" aria-live="polite">About 2.1 GB at 4-bit — comfortable in 8 GB.</p>
-            <div class="in-ratio">
-              <div class="in-track"><div class="in-fill" id="inFill" style="width:26%"></div></div>
-              <div class="in-rank"><span>model footprint</span><span id="ramOut">8 GB available</span></div>
-            </div>
-            <p class="in-note">rule of thumb: about 0.55 GB per billion parameters at 4-bit, plus 0.4 GB for the runtime. Real needs vary with context length.</p>
-          </div>
+            <p class="tool-note">Allow about 0.55 GB per billion parameters plus 0.4 GB for the runtime. Memory needs vary with context length.</p>
+            <p id="memory-fallback" class="tool-note">At 4-bit, a 3B model needs about 2.1 GB and a 7B model about 4.3 GB.</p>
+          </article>
+
+          <article aria-labelledby="localhost-title">
+            <h3 id="localhost-title">Where does it run?</h3>
+            <figure class="localhost" data-walkthrough data-state="model">
+              <svg class="local-diagram" viewBox="0 0 360 200" role="img" aria-labelledby="diagram-title diagram-description" focusable="false">
+                <title id="diagram-title">Local inference diagram</title>
+                <desc id="diagram-description">Your interface connects to a localhost server, which runs an open model. All three sit inside your computer. The cloud is outside and disconnected.</desc>
+                <rect class="computer-box" x="8" y="15" width="344" height="115" />
+                <text x="20" y="39">Your computer</text>
+                <path class="connection" d="M111 87h19m100 0h19" />
+                <g class="diagram-node" data-highlight="interface">
+                  <rect x="21" y="66" width="90" height="42" />
+                  <text x="66" y="92" text-anchor="middle">Interface</text>
+                </g>
+                <g class="diagram-node" data-highlight="server">
+                  <rect x="130" y="66" width="100" height="42" />
+                  <text x="180" y="92" text-anchor="middle">Localhost</text>
+                </g>
+                <g class="diagram-node is-highlighted" data-highlight="model">
+                  <rect x="249" y="66" width="90" height="42" />
+                  <text x="294" y="92" text-anchor="middle">Open model</text>
+                </g>
+                <path class="disconnection" d="M180 130v8m-6 3 12 12m0-12-12 12m6 3v5" />
+                <g class="diagram-node" data-highlight="cloud">
+                  <rect x="141" y="161" width="78" height="30" />
+                  <text x="180" y="181" text-anchor="middle">Cloud</text>
+                </g>
+              </svg>
+              <div class="control-row" role="group" aria-label="Parts of the local setup" data-controls hidden>
+                <button type="button" data-step="interface" aria-controls="localhost-result" aria-pressed="false">Interface</button>
+                <button type="button" data-step="server" aria-controls="localhost-result" aria-pressed="false">Localhost</button>
+                <button type="button" data-step="model" aria-controls="localhost-result" aria-pressed="true">Open model</button>
+                <button type="button" data-step="cloud" aria-controls="localhost-result" aria-pressed="false">Cloud</button>
+              </div>
+              <figcaption class="tool-note" id="localhost-result" aria-live="polite" aria-atomic="true">
+                <span data-panel="interface" hidden>A web page or terminal on the same machine takes your input.</span>
+                <span data-panel="server" hidden>The runtime listens on the loopback address, which is reachable from this machine.</span>
+                <span data-panel="model">The model runs on your machine. You can keep a local copy of its weights.</span>
+                <span data-panel="cloud" hidden>In this setup, the runtime has no connection to a cloud service.</span>
+              </figcaption>
+            </figure>
+          </article>
         </div>
-        <p class="in-fallback">The arithmetic, without the slider: at 4-bit quantization a small model needs roughly 0.55 GB per billion parameters plus 0.4 GB for the runtime &mdash; a 3B model lands near 2.1 GB and a 7B near 4.3 GB. Give yourself headroom for the context you work with.</p>
+      </section>
+    </main>
+  </div>
 
-        <p class="inst-tag" data-reveal>Instrument 02 &middot; where does it run</p>
-        <figure class="diagram-card" data-reveal data-inview>
-          <svg class="dsvg" viewBox="0 0 420 316" role="img" aria-label="Self-hosting target diagram: an open model served by a localhost runtime behind your own interface, with the link to an outside cloud service deliberately crossed out at the boundary of your computer." focusable="false">
-            <g class="dpart" id="dg-frame">
-              <rect class="dframe" x="24" y="24" width="372" height="240" rx="2"/>
-              <text class="dlabel" x="40" y="50">your computer</text>
-            </g>
-            <g class="dpart dnode-g" id="dg-interface" data-node="interface">
-              <rect class="dnode" x="36" y="110" width="96" height="36" rx="2"/>
-              <text class="dsmall" x="84" y="132" text-anchor="middle">your interface</text>
-            </g>
-            <g class="dpart dnode-g" id="dg-server" data-node="server">
-              <rect class="dnode" x="288" y="44" width="104" height="36" rx="2"/>
-              <text class="dsmall" x="340" y="66" text-anchor="middle">localhost server</text>
-            </g>
-            <g class="dpart dnode-g is-active" id="dg-model" data-node="model">
-              <rect class="dnode dnode-key" x="150" y="118" width="120" height="62" rx="2"/>
-              <text class="dtext" x="210" y="145" text-anchor="middle">open model</text>
-            </g>
-            <g class="dpart" id="dg-wires">
-              <path class="dlink" pathLength="1" d="M132 128 H210 V62 H288"/>
-              <path class="dlink" pathLength="1" d="M340 80 V99 H250 V118"/>
-            </g>
-            <g class="dpart dnode-g" id="dg-cloud" data-node="cloud">
-              <path class="dlink-dead" d="M210 180 V257"/>
-              <path class="dx" d="M205 259 L215 269"/>
-              <path class="dx" d="M215 259 L205 269"/>
-              <circle class="dext" cx="210" cy="292" r="20"/>
-              <text class="dlabel" x="210" y="296" text-anchor="middle">cloud</text>
-            </g>
-          </svg>
-          <div class="dlegend" role="group" aria-label="Focus a part of the stack">
-            <button type="button" class="dl" data-node="interface" data-note="Where you read and type — a plain web page or a terminal, on the same machine.">interface</button>
-            <button type="button" class="dl" data-node="server" data-note="A small runtime bound to loopback. It serves only this machine.">localhost</button>
-            <button type="button" class="dl is-active" data-node="model" data-note="Open weights you can read, pin, and retrain. The part you actually own." aria-pressed="true">open model</button>
-            <button type="button" class="dl" data-node="cloud" data-note="Off the path by design: nothing in this setup talks to it.">cloud</button>
-          </div>
-          <p class="dnote" id="dnote">Open weights you can read, pin, and retrain. The part you actually own.</p>
-          <figcaption class="diagram-cap">Working target: one computer holds the whole stack. Nothing leaves the machine.</figcaption>
-        </figure>
-
-        <div class="reslinks" data-reveal>
-          <p>The whole lab lives in one public repo &mdash; this site, the notes, the license.</p>
-          <div class="actions">
-            <a class="textlink" href="https://github.com/22JohnGalt/DIY">Read the source on GitHub</a>
-            <a class="textlink" href="https://github.com/22JohnGalt/DIY/blob/main/LICENSE">MIT &mdash; burn it down and rebuild it</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="process" aria-labelledby="process-title" data-inview>
-      <span class="srule" aria-hidden="true"></span>
-      <div class="wrap">
-        <div class="block-head">
-          <h2 id="process-title" data-reveal>How the work moves</h2>
-          <p class="block-lede" data-reveal>A plain loop, repeated, kept honest by documentation.</p>
-        </div>
-        <ol class="process" data-reveal-stagger>
-          <li data-reveal>
-            <p class="step-num">01</p>
-            <h3>Collect</h3>
-            <p>Papers, open datasets, and checkpoints small enough to run on one machine.</p>
-          </li>
-          <li data-reveal>
-            <p class="step-num">02</p>
-            <h3>Build</h3>
-            <p>Prototypes assembled from open components and tuned by hand.</p>
-          </li>
-          <li data-reveal>
-            <p class="step-num">03</p>
-            <h3>Test</h3>
-            <p>Benchmarks on ordinary hardware, including the numbers that disappoint.</p>
-          </li>
-          <li data-reveal>
-            <p class="step-num">04</p>
-            <h3>Publish</h3>
-            <p>Code, models, and results under open licenses, so others can replicate them.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="section" id="principles" aria-labelledby="principles-title" data-inview>
-      <span class="srule" aria-hidden="true"></span>
-      <div class="wrap">
-        <p class="quote" id="principles-title" data-reveal>Can you run it? Then you can own it.</p>
-        <div class="block-head">
-          <p class="block-lede" data-reveal>Convictions that shape every experiment at the lab, stated plainly with nothing guaranteed.</p>
-        </div>
-        <ul class="principles" data-reveal-stagger>
-          <li data-reveal>
-            <h3>Small by design</h3>
-            <p>Capability should not require a data center. Small models keep AI affordable, inspectable, and close at hand.</p>
-          </li>
-          <li data-reveal>
-            <h3>Open by license</h3>
-            <p>Free and open-source code and weights, so anyone can read them, verify them, and change them.</p>
-          </li>
-          <li data-reveal>
-            <h3>Private by default</h3>
-            <p>Self-hosting is the point: your documents, your queries, and your outputs stay on your machine.</p>
-          </li>
-          <li data-reveal>
-            <h3>Evidence over promise</h3>
-            <p>We measure on ordinary hardware, document what we find, and say plainly when something doesn&rsquo;t work.</p>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section section-invite" id="contact" aria-labelledby="invitation-title" data-inview>
-      <span class="srule" aria-hidden="true"></span>
-      <div class="wrap">
-        <h2 id="invitation-title" class="invite-line" data-reveal>Breaking things in the open? <em>Compare notes with us.</em></h2>
-        <!-- CONTACT PLACEHOLDER: replace hello@daiylab.example with the lab's real mailbox -->
-        <div class="actions" data-reveal>
-          <a class="btn" href="mailto:hello@daiylab.example">Email the lab</a>
-          <button class="copy" id="copyMail" type="button" data-copy="hello@daiylab.example">Copy address</button>
-        </div>
-        <p class="placeholder-note" data-reveal>address is a placeholder, the lab&rsquo;s real mailbox goes here</p>
-      </div>
-    </section>
-  </main>
-
-  <div class="hazard" aria-hidden="true"></div>
-
-  <footer class="site-footer">
-    <div class="wrap footer-grid">
-      <div class="footer-about">
-        <a class="wordmark" href="#top">
-          <svg class="wm" viewBox="0 0 20 20" aria-hidden="true" focusable="false">
-            <rect x="1" y="1" width="8" height="8"/>
-            <rect x="11" y="1" width="8" height="8"/>
-            <rect x="1" y="11" width="8" height="8"/>
-            <rect class="wm-a" x="11" y="11" width="8" height="8"/>
-          </svg>
-          <span class="wordmark-text">DAIY<span class="wordmark-lab"> Lab</span></span>
-        </a>
-        <p class="footer-desc">An independent, open-source AI workshop for small, self-hostable intelligence.</p>
-      </div>
-      <nav class="footer-nav" aria-label="Footer">
-        <ul>
-          <li><a href="#stack">Stack</a></li>
-          <li><a href="#instruments">Instruments</a></li>
-          <li><a href="#process">Process</a></li>
-          <li><a href="#principles">Principles</a></li>
-          <li><a href="#contact">Get in touch</a></li>
-          <li><a href="https://github.com/22JohnGalt/DIY">View source</a></li>
-          <li><a href="#top">Back to top</a></li>
-        </ul>
-      </nav>
-      <div class="footer-meta">
-        <p>MIT license</p>
-        <p>type set in IBM Plex (OFL)</p>
-      </div>
+  <footer class="wrap site-footer" id="contact">
+    <div class="footer-identity" id="about">
+      <a class="wordmark" href="#top">D<span>AI</span>Y Lab</a>
+      <p>Independent AI workshop</p>
     </div>
-    <div class="wrap footer-base">
-      <p>No trackers. No cookies. No third-party requests.</p>
-      <p>&copy; 2026 DAIY Lab</p>
-    </div>
+    <nav aria-label="Footer">
+      <a href="https://github.com/22JohnGalt/DIY">GitHub</a>
+      <a href="https://github.com/22JohnGalt/DIY/blob/main/LICENSE">MIT license</a>
+    </nav>
   </footer>
 </body>
 </html>
